@@ -19,7 +19,7 @@ RSpec.describe Task, type: :model do
     it "does not count a long-ago task toward velocity" do
       task.mark_completed(6.months.ago)
       expect(task).to_not be_part_of_velocity
-      expect(task.points_toward_veolocity).to eq 0
+      expect(task.points_toward_velocity).to eq 0
     end
 
     it "counts a recently completed task toward velocity" do
