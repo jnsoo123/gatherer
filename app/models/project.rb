@@ -1,6 +1,8 @@
 class Project < ApplicationRecord
   has_many :tasks
 
+  validates_presence_of :name
+
   def self.velocity_length_in_days
     21
   end

@@ -9,8 +9,14 @@ class ProjectsController < ApplicationController
       task_string: params[:project][:tasks]
     )
 
-    @action.create
-    redirect_to projects_path
+    success = @action.create
+
+    if success
+      redirect_to projects_path
+    else
+      @project = @action.project
+      render :new
+    end
   end
 
   def index
