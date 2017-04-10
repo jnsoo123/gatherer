@@ -1,6 +1,10 @@
 class Project < ApplicationRecord
   has_many :tasks
 
+  def self.velocity_length_in_days
+    21
+  end
+
   def done?
     tasks.reject(&:complete?).empty?
   end
@@ -22,7 +26,7 @@ class Project < ApplicationRecord
   end
 
   def current_rate
-    completed_velocity * 1.0/21
+    completed_velocity * 1.0 / Project.velocity_length_in_days
   end
 
   def projected_remaining_days
