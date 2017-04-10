@@ -23,6 +23,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   # Post-Installed Gems
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'pry-rails'
   # -- END --
