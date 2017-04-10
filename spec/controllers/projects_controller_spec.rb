@@ -7,5 +7,11 @@ RSpec.describe ProjectsController, type: :controller do
       expect(response).to redirect_to(projects_path)
       expect(assigns(:action).project.name).to eq "Runway"
     end
+
+    it "goes back to form on failure" do
+      post :create, params: { project: { name: "", tasks: "" } }
+      expect(response).to render_template :new
+      expect(assigns(:project)).to be_present
+    end
   end
 end
