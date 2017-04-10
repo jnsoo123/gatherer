@@ -37,11 +37,14 @@ describe CreatesProject do
       specify { expect(tasks.map(&:size)).to eq [3,2] }
     end
 
-    it "attaches tasks to the project" do
-      creator = CreatesProject.new(name: "Test", task_string: "Start things:3\nEnd things:2")
-      creator.create
-      expect(creator.project.tasks.size).to eq 2
-      expect(creator.project).to_not be_a_new_record
+    describe "attaching tasks to the project" do
+      let(:task_string) { "Start things:3\nEnd things:2" }
+
+      it "saves the project and tasks" do
+        creator.create
+        expect(creator.project.tasks.size).to eq 2
+        expect(creator.project).to_not be_a_new_record
+      end
     end
   end
 end
