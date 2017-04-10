@@ -18,13 +18,13 @@ describe CreatesProject do
       creator = CreatesProject.new(name: "Test", task_string: "Start things")
       tasks = creator.convert_string_to_tasks
       expect(tasks.size).to eq 1
-      expect(tasks.map(&:title)).to eq ["Start thins"]
+      expect(tasks.map(&:title)).to eq ["Start things"]
       expect(tasks.map(&:size)).to eq [1]
     end 
 
     it "handles a single string with size" do
       creator = CreatesProject.new(name: "Test", task_string: "Start things:3")
-      tasks = create.convert_string_to_tasks
+      tasks = creator.convert_string_to_tasks
       expect(tasks.size).to eq 1
       expect(tasks.map(&:title)).to eq ["Start things"]
       expect(tasks.map(&:size)).to eq [3]
@@ -32,7 +32,7 @@ describe CreatesProject do
 
     it "handles multiple tasks" do
       creator = CreatesProject.new(name: "Test", task_string: "Start things:3\nEnd things:2")
-      tasks = create.convert_string_to_tasks
+      tasks = creator.convert_string_to_tasks
       expect(tasks.size).to eq 2
       expect(tasks.map(&:title)).to eq ["Start things", "End things"]
       expect(tasks.map(&:size)).to eq [3,2]
