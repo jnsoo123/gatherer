@@ -17,14 +17,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Post-Installed Gems
+# -- END -- 
 
 group :development, :test do
   gem 'byebug', platform: :mri
 
   # Post-Installed Gems
-  
   gem 'rspec-rails'
   gem 'pry-rails'
+  # -- END --
 end
 
 group :development do
@@ -32,6 +33,12 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  # Post-Installed gems
+  gem 'capybara'
+  # -- END --
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
