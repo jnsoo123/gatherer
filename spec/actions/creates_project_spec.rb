@@ -18,23 +18,30 @@ describe CreatesProject do
 
     describe "with a single string" do
       let(:task_string) { "Start things" }
-      specify { expect(tasks.size).to eq 1 }
-      specify { expect(tasks.map(&:title)).to eq ["Start things"] }
-      specify { expect(tasks.map(&:size)).to eq [1] }
+      specify do
+        expect(tasks).to match([
+          an_object_having_attributes(title: 'Start things', size: 1)
+        ])
+      end
     end
 
     describe "with a single string with size" do
       let(:task_string) { "Start things:3" }
-      specify { expect(tasks.size).to eq 1 }
-      specify { expect(tasks.map(&:title)).to eq ["Start things"] }
-      specify { expect(tasks.map(&:size)).to eq [3] }
+      specify do
+        expect(tasks).to match([
+          an_object_having_attributes(title: "Start things", size: 3)
+        ])
+      end
     end
 
     describe "with multiple tasks" do
       let(:task_string) { "Start things:3\nEnd things:2" }
-      specify { expect(tasks.size).to eq 2 }
-      specify { expect(tasks.map(&:title)).to eq ["Start things", "End things"] }
-      specify { expect(tasks.map(&:size)).to eq [3,2] }
+      specify do
+        expect(tasks).to match([
+          an_object_having_attributes(title: "Start things", size: 3), 
+          an_object_having_attributes(title: "End things", size: 2)
+        ])
+      end
     end
 
     describe "attaching tasks to the project" do
