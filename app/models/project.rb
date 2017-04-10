@@ -2,6 +2,6 @@ class Project < ApplicationRecord
   has_many :tasks
 
   def done?
-    tasks.empty?
+    tasks.reject(&:complete?).empty?
   end
 end
