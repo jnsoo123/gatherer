@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 describe "adding projects" do
+
   it "allows the user to create a project with tasks" do
+    login
     visit new_project_path
     fill_in "Name", with: "Project Runway"
     fill_in "Tasks", with: "Task 1:3\nTask 2:5"

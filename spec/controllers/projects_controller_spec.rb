@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   describe "POST create" do
+
+    before(:each) do 
+      sign_in FactoryGirl.create(:user)
+    end
+
     it "creates a project" do
       post :create, params: { project: { name: "Runway", tasks: "Start something:2" } }
       expect(response).to redirect_to(projects_path)
