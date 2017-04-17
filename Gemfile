@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Post-Installed Gems
+gem 'devise'
 # -- END -- 
 
 group :development, :test do
