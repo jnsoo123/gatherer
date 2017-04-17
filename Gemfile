@@ -39,6 +39,7 @@ end
 group :test do
   # Post-Installed gems
   gem 'capybara'
+  gem 'factory_girl_rails'
   # -- END --
 end
 
